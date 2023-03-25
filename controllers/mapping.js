@@ -60,24 +60,11 @@ exports.namespaces = async () => {
         if (db != "local" && db != "admin" && db != "config") {
             // Define variables
             const collections = await mappingCollections(db);
-            const collectionList = [];
-
-            /* Loop to get objects by collections */
-            for (const coll of collections) {
-                // Define variables
-                const objects = await sourceDB.db(db).collection(coll).countDocuments();
-
-                // Add objects information to array
-                collectionList.push({
-                    "collection": coll,
-                    "objects": objects,
-                });
-            }
-
+            
             // Add collection information to array
             namespaces.push({
                 "database": db,
-                "collections": collectionList
+                "collections": collections
             });
         }
     }

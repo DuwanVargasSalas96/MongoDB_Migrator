@@ -3,7 +3,7 @@ require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
 // Define variables
-const client = new MongoClient(process.env.DESTINATION_DB_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const client = new MongoClient(process.env.DESTINATION_DB_URI);
 
 /* Errors control */
 try {
